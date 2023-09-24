@@ -2,5 +2,10 @@
 pragma solidity ^0.8.18;
 
 contract TodoList {
-    // Code goes here...
+    uint taskCount = 0;
+
+    //make a function
+    function createTask() public {
+        taskCount++;
+    }
 }
