@@ -4,9 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List</title>
-    <style>
-        
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="app">
@@ -24,9 +22,47 @@
             <p>First Task</p>
             <button>Delete</button>
           </li>
-        
         </ul>
       </main>
     </div>
+
+    <script>
+      const form = document.querySelector("form");
+      const input = document.querySelector("input");
+      const ul = document.querySelector("ul");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const text = input.value.trim();
+        if (text !== "") {
+          const li = document.createElement("li");
+          const p = document.createElement("p");
+          const button = document.createElement("button");
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          button.textContent = "Delete";
+          p.textContent = text;
+          li.appendChild(checkbox);
+          li.appendChild(p);
+          li.appendChild(button);
+          ul.appendChild(li);
+          input.value = "";
+        }
+      });
+
+      ul.addEventListener("click", (event) => {
+        if (event.target.tagName === "BUTTON") {
+          const li = event.target.parentElement;
+          ul.removeChild(li);
+        }
+      });
+
+      ul.addEventListener("change", (event) => {
+        if (event.target.tagName === "INPUT") {
+          const li = event.target.parentElement;
+          li.classList.toggle("completed");
+        }
+      });
+    </script>
   </body>
 </html>
