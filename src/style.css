@@ -1,0 +1,24 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+}
+
+.app{
+    
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+ul>li{
+    list-style: decimal-leading-zero;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
